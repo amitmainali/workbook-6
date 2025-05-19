@@ -1,12 +1,15 @@
+
+
+```mermaid
 classDiagram
-class Portfolio {
-- name: String
-- owner: String
-- assets: ArrayList<Asset>
-+ Portfolio(name: String, owner: String)
-+ add(asset: Asset)
-+ getValue(): double
-}
+    class Portfolio {
+        - name: String
+        - owner: String
+        - assets: ArrayList<Asset>
+        + Portfolio(name: String, owner: String)
+        + add(asset: Asset)
+        + getValue(): double
+    }
 
     class FixedAsset {
         <<abstract>>
@@ -36,7 +39,8 @@ class Portfolio {
         + getValue(): double
     }
 
-    Portfolio "1" *-- "*" FixedAsset
-    Jewelry --|> FixedAsset
-    Gold --|> FixedAsset
-    House --|> FixedAsset
+    Portfolio --> FixedAsset: contains
+    Jewelry <|-- FixedAsset
+    Gold <|-- FixedAsset
+    House <|-- FixedAsset
+```
