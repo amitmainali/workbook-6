@@ -1,11 +1,9 @@
-
-
 ```mermaid
 classDiagram
     class Portfolio {
-        - name: String
-        - owner: String
-        - assets: ArrayList<Asset>
+        - String name
+        - String owner
+        - ArrayList~Asset~ assets
         + Portfolio(name: String, owner: String)
         + add(asset: Asset)
         + getValue(): double
@@ -13,34 +11,34 @@ classDiagram
 
     class FixedAsset {
         <<abstract>>
-        - name: String
-        - marketValue: double
+        - String name
+        - double marketValue
         + Asset(name: String, value: double)
         + getValue(): double
     }
 
     class Jewelry {
-        - karat: double
+        - double karat
         + Jewelry(name: String, karat: double)
         + getValue(): double
     }
 
     class Gold {
-        - weight: double
+        - double weight
         + Gold(weight: double)
         + getValue(): double
     }
 
     class House {
-        - yearBuilt: int
-        - squareFeet: int
-        - bedrooms: int
+        - int yearBuilt
+        - int squareFeet
+        - int bedrooms
         + House(year: int, squareFeet: int, bedrooms: int)
         + getValue(): double
     }
 
-    Portfolio --> FixedAsset: contains
-    Jewelry <|-- FixedAsset
-    Gold <|-- FixedAsset
-    House <|-- FixedAsset
+    Portfolio --> FixedAsset : contains
+    FixedAsset <|-- Jewelry
+    FixedAsset <|-- Gold
+    FixedAsset <|-- House
 ```
