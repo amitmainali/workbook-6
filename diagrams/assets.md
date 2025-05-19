@@ -1,3 +1,5 @@
+```mermaid
+
 classDiagram
 class Portfolio {
 - name: String
@@ -40,3 +42,4 @@ class Portfolio {
     Jewelry --|> FixedAsset
     Gold --|> FixedAsset
     House --|> FixedAsset
+```
